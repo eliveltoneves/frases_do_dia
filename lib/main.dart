@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main(){
    runApp(const MaterialApp(
@@ -16,6 +17,31 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  var _frases = [
+    "Eu não pago por ternos. Meus ternos são por conta da casa, ou a casa pega fogo",
+    "A convicção traz emoção, a inimiga da oratória",
+    "Se você fizer a escolha errada, você não verá as 11h44",
+    "Bom gosto é para pessoas que não podem pagar por safiras",
+    "Quando o destino deixa algo valioso em seu colo, você não simplesmente joga no lixo",
+    "Eu sou apenas um excelente exemplo do que um homem trabalhador pode conquistar",
+    "Eu penso para que você não precise pensar",
+    "Não é uma boa ideia olhar para Tommy Shelby da forma errada",
+    "Eu fiz acordos com homens em quem eu confio. Se eu morrer, você vai morrer",
+    "Você não negocia quando está na pior"
+  ];
+
+  var _fraseGerada = "Clique abaixo para gerar uma frase!";
+
+  void _geraFrase(){
+
+    var numeroSorteado = Random().nextInt(_frases.length);
+
+    setState(() {
+      _fraseGerada = _frases[numeroSorteado];
+    });
+
+  }
 
 
   @override
@@ -38,7 +64,7 @@ class _HomeState extends State<Home> {
             children:[
               Image.asset("images/logo.png"),
               Text(
-                "Clique abaixo para gerar uma frase!",
+                _fraseGerada,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
                     fontSize: 25,
@@ -51,7 +77,7 @@ class _HomeState extends State<Home> {
                   primary: Colors.green,
                   onPrimary: Colors.white,
                 ),
-                onPressed: () {  },
+                onPressed: _geraFrase,
                 child: Text(
                   "Nova Frase",
                   style: TextStyle(
