@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
@@ -18,7 +17,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  var _frases = [
+  final _frases = [
     "Eu não pago por ternos. Meus ternos são por conta da casa, ou a casa pega fogo",
     "A convicção traz emoção, a inimiga da oratória",
     "Se você fizer a escolha errada, você não verá as 11h44",
@@ -48,12 +47,12 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Frases do Dia"),
+        title: const Text("Frases do Dia"),
         backgroundColor: Colors.green,
       ),
       body: Center(
         child: Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           //width: double.infinity,
           /*decoration: BoxDecoration(
               border: Border.all(width: 3, color: Colors.amber)
@@ -66,7 +65,7 @@ class _HomeState extends State<Home> {
               Text(
                 _fraseGerada,
                 textAlign: TextAlign.justify,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 25,
                     fontStyle: FontStyle.italic,
                     color: Colors.black
@@ -78,7 +77,7 @@ class _HomeState extends State<Home> {
                   onPrimary: Colors.white,
                 ),
                 onPressed: _geraFrase,
-                child: Text(
+                child: const Text(
                   "Nova Frase",
                   style: TextStyle(
                       fontSize: 25,
